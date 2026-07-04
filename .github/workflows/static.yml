@@ -33,9 +33,9 @@ jobs:
         uses: actions/checkout@e2f00e2b39d21eaf3fd670ff91b8de537d5beaff
 
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@60edb5dd545a775178fac8f2e9e4f25827916eef
         with:
-          node-version: '26'
+          node-version: '18'
 
       - name: Install dependencies
         run: npm install
