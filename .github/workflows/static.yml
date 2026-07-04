@@ -3,7 +3,7 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      - main  # เปลี่ยนเป็น master ถ้า branch หลักของมึงชื่อ master
+      - main
 
 permissions:
   contents: read
@@ -19,10 +19,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@b4ffde65f46336ab88eb53b118027d47fa72291f  # v4
 
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@60edb5dd545a775178fac7f3be8f1d45c5880ca2  # v4
         with:
           node-version: 20
 
@@ -33,7 +33,7 @@ jobs:
         run: npm run build
 
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@65d961e75c92c3e37c3b8d34c6e2fee8dbb98c10  # v3
         with:
           path: ./dist
 
@@ -46,4 +46,4 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@d6db90164a482fb3e7b4801eab56eff26eacf045  # v4
