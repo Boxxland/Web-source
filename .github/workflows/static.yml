@@ -31,10 +31,27 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@e2f00e2b39d21eaf3fd670ff91b8de537d5beaff
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build
+        run: npm run build
+
       - name: Setup Pages
         uses: actions/configure-pages@45bfe01d284127da79591affaea9abe46783061d
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@fc324d3a9c65e570eebf83eaf5f53b5856375534
+        with:
+          # Upload dist folder (Vite output)
+          path: 'dist'
+
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@cd2ce8fd5c325be9cf62f8f6c26c5c28cf6e5c95
