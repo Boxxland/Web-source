@@ -26,8 +26,10 @@ jobs:
       - name: Prepare static files
         run: |
           mkdir -p _site
-          # ใช้ rsync ในการก๊อบปี้ทุกอย่างรวมถึง subfolder ทั้งหมด โดยยกเว้นโฟลเดอร์ _site เองอย่างปลอดภัย
-          rsync -av --exclude='_site' ./ _site/
+          # Copy all files and folders except _site, .git, and .github
+          find . -maxdepth 1 -not -name '.' -not -name '_site' -not -name '.git' -not -name '.github' -not -name '.gitignore' | while read item; do
+            cp -r "$item" _site/
+          done
 
       - name: Upload Artifact
         uses: actions/upload-pages-artifact@v3
