@@ -30,10 +30,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@e2f00e2b39d21eaf3fd670ff91b8de537d5beaff
+        uses: actions/checkout@v4
 
       - name: Setup Node.js
-        uses: actions/setup-node@60edb5dd545a775178fac8f2e9e4f25827916eef
+        uses: actions/setup-node@v4
         with:
           node-version: '18'
 
@@ -44,14 +44,14 @@ jobs:
         run: npm run build
 
       - name: Setup Pages
-        uses: actions/configure-pages@45bfe01d284127da79591affaea9abe46783061d
+        uses: actions/configure-pages@v5
 
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@fc324d3a9c65e570eebf83eaf5f53b5856375534
+        uses: actions/upload-pages-artifact@v3
         with:
           # Upload dist folder (Vite output)
           path: 'dist'
 
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@cd2ce8fd5c325be9cf62f8f6c26c5c28cf6e5c95
+        uses: actions/deploy-pages@v5
