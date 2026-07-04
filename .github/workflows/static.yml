@@ -26,9 +26,8 @@ jobs:
       - name: Prepare static files
         run: |
           mkdir -p _site
-          cp -r . _site/
-          find _site -name '_site' -type d -exec rm -rf {} + 2>/dev/null || true
-          find _site -name '.git' -o -name '.github' | xargs rm -rf 2>/dev/null || true
+          # ใช้ rsync ในการก๊อบปี้ทุกอย่างรวมถึง subfolder ทั้งหมด โดยยกเว้นโฟลเดอร์ _site เองอย่างปลอดภัย
+          rsync -av --exclude='_site' ./ _site/
 
       - name: Upload Artifact
         uses: actions/upload-pages-artifact@v3
