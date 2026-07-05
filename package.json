@@ -1,8 +1,8 @@
 {
-  "name": "nodejs",
+  "name": "web-source",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "type": "module",
   "scripts": {
     "dev": "vite",
     "dev:client": "vite",
@@ -25,7 +25,6 @@
     "discord.js": "^14.26.4",
     "express": "^5.2.1",
     "framer-motion": "^12.42.2",
-    "fs": "^0.0.1-security",
     "jimp": "^0.22.12",
     "jsqr": "^1.4.0",
     "lucide-react": "^1.23.0",
